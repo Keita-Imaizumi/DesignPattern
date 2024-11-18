@@ -11,7 +11,7 @@ public class Main {
 			rootDir.add(usrDir);
 			binDir.add(new File("vi", 10000));
 			binDir.add(new File("latex", 20000));
-			rootDir.accept(new ListVisitor());
+			// rootDir.accept(new ListVisitor());
 
 			System.out.println();
 			System.out.println("Making user entryies...");
@@ -24,9 +24,12 @@ public class Main {
 			yuki.add(new File("diary.html", 100));
 			yuki.add(new File("Composite.java", 200));
 			hanako.add(new File("memo.tex", 300));
+			hanako.add(new File("memo.html", 350));
 			tomura.add(new File("game.doc", 400));
 			tomura.add(new File("junk.mail", 500));
-			rootDir.accept(new ListVisitor());
+			// rootDir.accept(new ListVisitor());
+			System.out.println("HTML files are ..");
+			rootDir.accept(new FileFindVisitor(".html"));
 		} catch (FileTreatmentException e) {
 			e.printStackTrace();
 		}
